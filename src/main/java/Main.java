@@ -6,6 +6,7 @@ public class Main {
         Box box = new Box();
         OnSwitcher onSwitcher = new OnSwitcher(SWITCH_ON_THRESHOLD, ITERATIONS, box);
         OffSwitcher offSwitcher = new OffSwitcher(box);
+        offSwitcher.setDaemon(true);
 
         onSwitcher.start();
         offSwitcher.start();
@@ -15,6 +16,5 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        offSwitcher.interrupt();
     }
 }
